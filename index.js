@@ -13,7 +13,11 @@ io.of("/").on("connection", (socket) => {
     message: "Welcome to Live Painter. We are happy to see you",
   });
 
-  socket.on("lines", (data) => {
-    io.emit("drawing", data);
+  socket.on("line", (data) => {
+    io.emit("drawLine", data);
+  });
+
+  socket.on("clear", (data) => {
+    io.emit("clear", null);
   });
 });
